@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "esnext", // 要使用的模板标准
+    "target": "es5", // 指定编译之后的版本
+    "allowJs": false, // 是否编译js
+    "jsx": "react-jsx",// jsx的开发环境
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "strict": true,
+    "noEmit": false,
+    "sourceMap": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
