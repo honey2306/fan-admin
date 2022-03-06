@@ -2,11 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const friendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 module.exports = {
-    entry: './src/main.tsx',
-    output: {
-        path: path.resolve(__dirname, './dist'),
-        filename: 'main.js'
-    },
+    entry: path.join(__dirname, '../src/main.tsx'),
     module: {
         rules: [
             // 使用babel进行代码转换
@@ -32,17 +28,15 @@ module.exports = {
                         outputPath: 'media',
                         name: '[name]_[hash:8].[ext]'
                     }
-                }]
+                }],
+                type: 'javascript/auto'
             },
             {
                 test: /\.(png|jpg|jpeg|gif|svg)$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        outputPath: 'img',
-                        name: '[name]_[hash:8].[ext]'
-                    }
-                }]
+                type: 'asset/resource',
+                generator: {
+                    filename: 'img/[name]_[hash:8][ext]'
+                }
             },
             //字体格式
             {
@@ -62,7 +56,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, '../src/public/index.html'),
+            template: path.resolve(__dirname, '../public/index.html'),
             filename: 'index.html'
         }),
         new friendlyErrorsWebpackPlugin()

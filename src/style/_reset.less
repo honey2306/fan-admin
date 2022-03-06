@@ -1,0 +1,96 @@
+@charset "utf-8";
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-focus-ring-color: rgba(0, 0, 0, 0);
+  box-sizing: content-box;
+}
+
+html, body {
+  width: 100%;
+}
+
+body {
+  font-family: "\5FAE\8F6F\96C5\9ED1", "Microsoft YaHei", STHeiTi, sans-serif;
+}
+
+/* CSS Document */
+html, body, h1, h2, h3, h4, h5, h6, div, dl, dt, dd, ul, ol, li, p, blockquote, pre, hr, figure, table, caption, th, td, form, fieldset, legend, input, button, textarea, menu, select {
+  margin: 0;
+  padding: 0;
+}
+
+html, body, fieldset, img, iframe, abbr {
+  border: 0;
+}
+
+h1, h2, h3, h4, h5, h6, em, strong, b {
+  font-weight: normal;
+  font-style: normal;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+li {
+  list-style: none;
+}
+
+input, textarea, button, a, div, select {
+  border: 0;
+  outline: none;
+}
+
+input, textarea, button, a {
+  font: inherit;
+  color: inherit;
+}
+
+textarea {
+  overflow: auto;
+  resize: none;
+}
+
+input {
+  outline: none;
+}
+
+a, button {
+  cursor: pointer;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+a, a:hover {
+  text-decoration: none;
+}
+
+select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+// chrome自动填充去掉背景色
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition-delay: 999999s;
+  -webkit-transition: color 999999s ease-out, background-color 999999s ease-out;
+}
+
+// IE低版本提醒
+#NIE-warning-dialog {
+  box-sizing: content-box !important;
+}
+#NIE-topBar{
+  box-sizing: content-box;
+}
