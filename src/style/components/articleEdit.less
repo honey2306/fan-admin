@@ -1,0 +1,64 @@
+.articleEdit {
+  height: 100%;
+
+  header {
+    height: 50px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .autoSave {
+      margin-left: 30px;
+
+      .anticon {
+        color: #67C23A;
+        margin-right: 5px;
+      }
+    }
+
+    .save {
+      position: absolute;
+      right: 150px;
+    }
+
+    .pub {
+      position: absolute;
+      right: 50px;
+      background-color: #409EFF;
+      color: white;
+    }
+  }
+
+  .title {
+    padding: 10px;
+    height: 100px;
+    background-color: white;
+    margin-top: 10px;
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    .op {
+      display: flex;
+
+      .typeSelect {
+        width: 100px;
+        margin-right: 20px;
+        float: left;
+      }
+
+      .input {
+        flex: 1;
+      }
+    }
+
+  }
+
+  .main {
+    width: 100%;
+    height: calc(100% - 180px);
+    margin-top: 20px;
+  }
+}

@@ -1,8 +1,9 @@
 import React from 'react'
+import LayoutIndex from "../../layout/Layout"
 
 const Home = () => {
   return (
-    <div>欢迎来到Fan后台管理系统</div>
+    <LayoutIndex/>
   )
 }
 

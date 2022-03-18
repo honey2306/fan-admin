@@ -1,11 +1,22 @@
-import {initStore} from "../sotre"
+import { combineReducers } from 'redux'
 
-export const toggleLoginStatus = (state: any = initStore, action: any = {}) => {
+const isLogin = (state = false, action: any = {}) => {
   if (action.type === 'toggleLoginStatus') {
-    return Object.assign({}, state, {
-      isLogin: action.isLogin
-    })
+    return action.isLogin
   } else {
     return state
   }
 }
+
+const user = (state: any = {}, action: any = {}) => {
+  if (action.type === 'initUser') {
+    return {
+      ...state,
+      ...action.data
+    }
+  } else {
+    return state
+  }
+}
+
+export default combineReducers({ isLogin, user })

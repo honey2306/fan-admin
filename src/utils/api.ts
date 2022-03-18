@@ -1,7 +1,7 @@
 import axios from "axios"
-import {message} from 'antd'
-import {getStore} from "../main"
-import {toggleIsLogin} from "../store/actions"
+import { message } from 'antd'
+import { getStore } from "../store/initStore"
+import { toggleIsLogin } from "../store/actions"
 
 axios.defaults.timeout = 600000
 axios.defaults.baseURL = 'http://api-test.netease.com:3000'
@@ -12,7 +12,7 @@ const needAuthCode = -1
 
 axios.interceptors.response.use((response: any) => {
   const jsonRes = response.data
-  const {code, msg, data} = jsonRes
+  const { code, msg, data } = jsonRes
   if (code === needAuthCode) {
     getStore().dispatch(toggleIsLogin(false))
   } else if (code === successCode) {
@@ -26,9 +26,9 @@ axios.interceptors.response.use((response: any) => {
   return Promise.reject(new Error(errMsg))
 })
 
-export const handle = (defer: Promise<any>, desc: string, showSucc?: boolean) => {
+export const handle = (defer: Promise<any>, desc: string, showSucc?: boolean, showErr?: boolean) => {
   defer.catch((ex: any) => {
-    message.error(`${desc}失败：${ex.message.replace(/\[.+?]/g, '')}`)
+    showErr && message.error(`${desc}失败：${ex.message.replace(/\[.+?]/g, '')}`)
   })
 
   return defer.then(r => {

@@ -1,3 +1,4 @@
-export const initStore = {
-  isLogin: false
+export const initStore: any = {
+  isLogin: false,
+  user: {}
 }

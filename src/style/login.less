@@ -1,10 +1,13 @@
 @import "_mixin";
-.bg{
+
+.bg {
   width: 1920px;
   height: 1080px;
-  position: relative;
+  position: absolute;
+  .horizontalCenter();
   background-image: url("../imgs/bg.jpg");
-  .title{
+
+  .title {
     width: 100px;
     height: 100px;
     line-height: 100px;
@@ -17,32 +20,40 @@
     .horizontalCenter();
     z-index: 2;
   }
-  .main{
+
+  .main {
     top: 280px;
     .horizontalCenter();
-    .ant-card{
+
+    .ant-card {
       width: 600px;
       height: 450px;
       background: rgba(255, 255, 255, 0.7);
       border-radius: 20px;
-      .ant-form{
+
+      .ant-form {
         margin: 110px 30px 0;
-        .ant-row{
+
+        .ant-row {
           &:nth-child(1) {
             margin-bottom: 50px;
           }
+
           &:nth-child(3) {
             position: relative;
             margin-top: 80px;
-            button{
+
+            button {
               .horizontalCenter();
               cursor: pointer;
             }
           }
-          .ant-input-prefix{
+
+          .ant-input-prefix {
             color: #D7D7D7;
           }
-          .ant-input-affix-wrapper{
+
+          .ant-input-affix-wrapper {
             border-radius: 6px;
           }
         }

@@ -1,21 +1,22 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import Login from './view/main/Login'
 import Home from "./view/main/home"
-import {useDispatch, useSelector} from "react-redux"
-import {handle} from "./utils/api"
+import { useDispatch } from "react-redux"
+import { handle } from "./utils/api"
 import axios from "axios"
-import {toggleIsLogin} from "./store/actions"
+import { initUser, toggleIsLogin } from "./store/actions"
 
 function App() {
-  const isLogin = useSelector((state: any) => state.isLogin)
+  const isLogin = true
   const dispatch = useDispatch()
   useEffect(() => {
     getLoginInfo()
   }, [])
 
   const getLoginInfo = () => {
-    handle(axios.get('/users/loginInfo'), '获取登录信息').then((res: any) => {
+    handle(axios.get('/users/loginInfo'), '获取登录信息', false, false).then((res: any) => {
       dispatch(toggleIsLogin(true))
+      dispatch(initUser(res.data))
     })
   }
   return (
