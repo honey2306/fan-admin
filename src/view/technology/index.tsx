@@ -1,6 +1,6 @@
 import React from "react"
-import Combination from "../../components/common/Combination"
 import { Space, Tag } from "antd"
+import Type from "./type"
 
 const columns = [
   {
@@ -82,7 +82,7 @@ const txtList = {
 
 const Technology = () => {
   return (
-    <Combination columns={columns} data={data} txtList={txtList}/>
+    <Type/>
   )
 }
 

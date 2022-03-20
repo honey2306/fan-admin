@@ -1,21 +1,34 @@
-import React, { useRef } from "react"
+import React, { forwardRef, useImperativeHandle, useState } from "react"
 import CombineTable from "./CombineTable"
-import { Button } from "antd"
 import CombineModel from "./CombineModel"
 
-const Combination = (props: any) => {
-  const { data, columns, txtList } = props
-  const modelRef: any = useRef()
-  const showModel = () => {
-    modelRef.current.showModal(true)
+const Combination = (props: any, ref: any) => {
+  const { defer, columns, txtList, addOrEdit, modelShow, onCancel, tableSlot, isAdd, formData } = props
+  const [refresh, setRefresh] = useState(0)
+  useImperativeHandle(ref, () => ({
+    refresh: () => {
+      refreshFn()
+    }
+  }))
+
+  const refreshFn = () => {
+    setRefresh(refresh + 1)
   }
+
   return (
-    <>
-      <Button onClick={() => showModel()}>{txtList.add}</Button>
-      <CombineTable data={data} columns={columns}/>
-      <CombineModel ref={modelRef} data={data} columns={columns} txtList={txtList}/>
-    </>
+    <div className={'combination'}>
+      {tableSlot}
+      <CombineTable defer={defer} columns={columns} refresh={refresh}/>
+      <CombineModel columns={columns} txtList={txtList}
+        addOrEdit={addOrEdit}
+        onCancel={onCancel}
+        modelShow={modelShow}
+        isAdd={isAdd}
+        formData={formData}
+        refresh={refreshFn}
+      />
+    </div>
   )
 }
 
-export default Combination
+export default forwardRef(Combination)

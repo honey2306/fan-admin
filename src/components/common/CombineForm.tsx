@@ -7,22 +7,24 @@ const CombineForm = (props: any) => {
     <Form
       form={form}
       name="basic"
-      labelCol={{ span: 8 }}
       preserve={false}
-      wrapperCol={{ span: 16 }}
-      initialValues={{ remember: true }}
       autoComplete="off"
     >
       {
         columns.map((item: any, index: number) => {
-          return (<Form.Item
+          const { editHidden } = item
+          return (!editHidden && <Form.Item
+            shouldUpdate
+            labelCol={{ span: item.labelCol }}
+            wrapperCol={{ span: item.wrapperCol }}
             key={index}
             label={item.title}
             name={item.key}
             rules={item.rules}
           >
-            <Input/>
-          </Form.Item>)
+            <Input allowClear={true}/>
+          </Form.Item>
+          )
         })
       }
     </Form>

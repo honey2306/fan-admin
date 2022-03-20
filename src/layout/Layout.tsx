@@ -4,7 +4,7 @@ import User from "./User"
 import classNames from "classnames"
 import { pageList } from "./page"
 import { IconFont } from "../utils"
-import ArticleEdit from "../components/ArticleEdit"
+import Technology from "../view/technology"
 
 const { Header, Sider, Content } = Layout
 
@@ -40,7 +40,7 @@ const LayoutIndex = () => {
           <User/>
         </Header>
         <Content className="site-layout-background content">
-          <ArticleEdit hasType={true}/>
+          <Technology/>
         </Content>
       </Layout>
     </Layout>
