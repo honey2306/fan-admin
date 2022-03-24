@@ -17,6 +17,10 @@
       }
     }
 
+    .back {
+      margin-left: 20px;
+    }
+
     .save {
       position: absolute;
       right: 150px;
@@ -56,9 +60,45 @@
 
   }
 
+  .img {
+    height: 220px;
+    position: relative;
+
+    .ant-upload.ant-upload-drag {
+      height: 150px;
+    }
+
+    .ant-upload-list {
+
+    }
+
+    .ant-image {
+      position: absolute;
+      left: 10px;
+    }
+
+    .imgItem {
+      height: 150px;
+    }
+
+    .close {
+      cursor: pointer;
+      color: gray;
+      position: absolute;
+      font-size: 26px;
+      top: 43px;
+      left: 3px;
+      transition: 0.3s;
+
+      &:hover {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
   .main {
     width: 100%;
-    height: calc(100% - 180px);
+    height: 1000px;
     margin-top: 20px;
   }
 }

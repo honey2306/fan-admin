@@ -8,7 +8,7 @@ import { handle } from "../utils/api"
 
 const mdParser = new MarkdownIt(/* Markdown-it options */)
 const MarkdownEdit = (props: any) => {
-  const { getText } = props
+  const { getText, defaultValue = '' } = props
   const handleEditorChange = ({ text }: any) => {
     getText(text)
   }
@@ -20,7 +20,7 @@ const MarkdownEdit = (props: any) => {
   }
   return (
     <>
-      <MdEditor renderHTML={text => mdParser.render(text)}
+      <MdEditor value={defaultValue} renderHTML={text => mdParser.render(text)}
         onChange={handleEditorChange}
         onImageUpload={onImageUpload}
       />
