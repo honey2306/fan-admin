@@ -5,6 +5,7 @@ import classNames from "classnames"
 import { pageList } from "./page"
 import { IconFont } from "../utils"
 import Technology from "../view/technology"
+import FootPrint from "../view/footPrint"
 
 const { Header, Sider, Content } = Layout
 
@@ -40,7 +41,8 @@ const LayoutIndex = () => {
           <User/>
         </Header>
         <Content className="site-layout-background content">
-          <Technology/>
+          {activeName === 'technology' && <Technology/>}
+          {activeName === 'footprint' && <FootPrint/>}
         </Content>
       </Layout>
     </Layout>
