@@ -18,7 +18,7 @@ const MapContainer = () => {
       var adCode = [340000, 130000]
       var depth = 1
       map = new AMap.Map("container", {
-        mapStyle: 'amap://styles/8684af0e676654606b3faa2b88c794c4',
+        mapStyle: 'amap://styles/grey',
         zoom: 5,
         center: [116.412427, 39.303573],
         pitch: 0,
@@ -37,7 +37,7 @@ const MapContainer = () => {
             // adcode_cit
             // adcode
             var adcode = properties.NAME_CHN
-            return (adcode === '石家庄市' || adcode === '合肥市' || adcode === '安庆市') ? 'rgba(78,105,216, 0.8)' : ''
+            return (adcode === '石家庄市' || adcode === '合肥市' || adcode === '安庆市') ? '#26407E' : ''
           },
           'province-stroke': '',
           'city-stroke': function (properties: any) {
@@ -47,7 +47,7 @@ const MapContainer = () => {
             // adcode_cit
             // adcode
             var adcode = properties.NAME_CHN
-            return (adcode === '石家庄市' || adcode === '合肥市' || adcode === '安庆市') ? 'red' : ''
+            return (adcode === '石家庄市' || adcode === '合肥市' || adcode === '安庆市') ? '#15C2D3' : ''
           }, // 中国地级市边界
           'county-stroke': 'rgba(255,255,255,1)' // 中国区县边界
         }
