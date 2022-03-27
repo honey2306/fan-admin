@@ -3,7 +3,7 @@ import { handle } from "./api"
 import axios from "axios"
 
 export const IconFont = createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_3249572_9h1nw56km5.js'
+  scriptUrl: '//at.alicdn.com/t/font_3249572_95ublen0yxj.js'
 })
 
 export const uploadFile = async (file: File) => {

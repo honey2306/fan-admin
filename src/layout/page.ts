@@ -6,6 +6,11 @@ export const pageList = [{
   label: '足迹',
   name: 'footprint',
   icon: 'icon-zuji'
+},
+{
+  label: '游记',
+  name: 'travel',
+  icon: 'icon-youji'
 }, {
   label: '碎语',
   name: 'word',

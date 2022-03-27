@@ -12,6 +12,7 @@ const MarkdownEdit = (props: any) => {
   const handleEditorChange = ({ text }: any) => {
     getText(text)
   }
+
   const onImageUpload = async (file: File) => {
     const formData = new FormData()
     formData.append('img', file)
