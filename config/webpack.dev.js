@@ -1,5 +1,5 @@
 const baseConfig = require('./webpack.base')
-const {merge} = require('webpack-merge')
+const { merge } = require('webpack-merge')
 const webpack = require('webpack')
 const path = require("path")
 
@@ -28,7 +28,7 @@ module.exports = merge(baseConfig, {
     static: {
       directory: path.join(__dirname, "../public")
     },
-    port: '8001',
+    port: '8008',
     host: '0.0.0.0',
     hot: true,
     open: false,

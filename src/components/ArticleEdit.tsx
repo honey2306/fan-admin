@@ -9,10 +9,13 @@ import ChoosePlace from "../view/travel/ChoosePlace"
 
 const { Option } = Select
 
+const { TextArea } = Input
+
 const ArticleEdit = (props: any) => {
   const { hasType, hasPlace = false, back, propsSave, propsPub, info, isPub } = props
   let autoInterval: any = null
   const [title, setTitle] = useState('')
+  const [desc, setDesc] = useState('')
   const [typeId, setTypeId] = useState('')
   const [img, setImg] = useState('')
   const [place, setPlace] = useState<any>({})
@@ -33,13 +36,17 @@ const ArticleEdit = (props: any) => {
     setTitle(e.target.value)
   }
 
+  const descChange = (e: any) => {
+    setDesc(e.target.value)
+  }
+
   const getImg = (imgSrc: string) => {
     setImg(imgSrc)
   }
 
   const getInfo = () => {
     const tmpInfo: any = {
-      title, img, content
+      title, img, content, desc
     }
     hasType && (tmpInfo.typeId = typeId)
     hasPlace && (tmpInfo.place = place)
@@ -49,10 +56,10 @@ const ArticleEdit = (props: any) => {
   const pub = () => {
     const tepInfo = getInfo()
     tepInfo.status = 1
-    const noNull: any [] = [title, img, content]
+    const noNull: any [] = [title, img, content, desc]
     hasType && (noNull.push(typeId))
     hasPlace && (noNull.push(place))
-    if (judgeNull([title, img, content])) {
+    if (judgeNull([title, img, content, desc])) {
       propsPub(tepInfo)
     } else {
       message.error('请完成所有内容再发布')
@@ -87,8 +94,9 @@ const ArticleEdit = (props: any) => {
   }, [])
 
   useEffect(() => {
-    const { title = '', typeId = '', img = '', content = '', place = {} } = info
+    const { title = '', desc = '', typeId = '', img = '', content = '', place = {} } = info
     setTitle(title)
+    setDesc(desc)
     setImg(img)
     setTypeId(typeId)
     setContent(content)
@@ -146,6 +154,10 @@ const ArticleEdit = (props: any) => {
             }}>选择地点</Button>}
         </div>
       }
+      <div className={'title desc'}>
+        <h2>封面描述</h2>
+        <TextArea value={desc} className={'input'} onChange={descChange}/>
+      </div>
       <div className={'title img'}>
         <h2>封面图</h2>
         <UploadFile success={getImg} defaultValue={img}/>

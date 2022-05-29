@@ -31,6 +31,7 @@ const Technology = () => {
   }
 
   const add = () => {
+    setActiveId('')
     setInfo({})
     setIsAdd(true)
   }
